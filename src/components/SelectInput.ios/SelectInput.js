@@ -43,7 +43,8 @@ class SelectInput extends AbstractSelectInput {
       style,
       submitKeyText,
       cancelKeyText,
-      value
+      value,
+      dateMode
     } = this.props
 
     return (
@@ -67,6 +68,7 @@ class SelectInput extends AbstractSelectInput {
             onValueChange={this.onValueChange}
             submitKeyText={submitKeyText}
             cancelKeyText={cancelKeyText}
+            dateMode={dateMode}
             buttonsTextStyle={buttonsTextStyle}
             buttonsViewStyle={buttonsViewStyle}
             pickerItemStyle={pickerItemStyle}

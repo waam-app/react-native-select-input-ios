@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Picker } from 'react-native'
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 import CustomKeyboard from '../CustomKeyboard'
 
@@ -53,7 +54,7 @@ class PickerKeyboard extends Component {
   onValueChange = value => {
     const { onValueChange } = this.props
     onValueChange && onValueChange(value)
-
+    console.log(value);
     this.setState({
       value: value
     })
@@ -73,7 +74,8 @@ class PickerKeyboard extends Component {
       pickerViewStyle,
       cancelKeyText,
       submitKeyText,
-      options
+      options,
+      dateMode
     } = this.props
 
     const { value, visible } = this.state
@@ -88,21 +90,28 @@ class PickerKeyboard extends Component {
         submitKeyText={submitKeyText}
         visible={visible}
       >
-        <Picker
-          ref={this.setPickerRef}
-          onValueChange={this.onValueChange}
-          selectedValue={value}
-          style={[styles.pickerview, pickerViewStyle]}
-          itemStyle={pickerItemStyle}
-        >
-          {options.map(option => (
-            <Picker.Item
-              key={option.value}
-              value={option.value}
-              label={option.label}
-            />
-          ))}
-        </Picker>
+        {dateMode ? (
+          <DateTimePicker value={new Date()}
+            display="default"
+            onChange={(e,val) => this.onValueChange(val)}
+          />
+        ):(
+          <Picker
+            ref={this.setPickerRef}
+            onValueChange={this.onValueChange}
+            selectedValue={value}
+            style={[styles.pickerview, pickerViewStyle]}
+            itemStyle={pickerItemStyle}
+          >
+            {options.map(option => (
+              <Picker.Item
+                key={option.value}
+                value={option.value}
+                label={option.label}
+              />
+            ))}
+          </Picker>
+        )}
       </CustomKeyboard>
     )
   }

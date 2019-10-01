@@ -28,6 +28,9 @@ const styles = StyleSheet.create({
   },
   picker_bottom: {
     width: SCREEN_WIDTH
+  },
+  childContainer: {
+    width: '100%'
   }
 })
 
