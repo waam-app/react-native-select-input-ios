@@ -54,7 +54,6 @@ class PickerKeyboard extends Component {
   onValueChange = value => {
     const { onValueChange } = this.props
     onValueChange && onValueChange(value)
-    console.log(value);
     this.setState({
       value: value
     })
@@ -91,7 +90,7 @@ class PickerKeyboard extends Component {
         visible={visible}
       >
         {dateMode ? (
-          <DateTimePicker value={new Date()}
+          <DateTimePicker value={value}
             display="default"
             onChange={(e,val) => this.onValueChange(val)}
           />
