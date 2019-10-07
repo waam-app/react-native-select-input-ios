@@ -44,7 +44,13 @@ class SelectInput extends AbstractSelectInput {
       submitKeyText,
       cancelKeyText,
       value,
-      dateMode
+      dateMode,
+      locale,
+      maximumDate,
+      minimumDate,
+      timeZoneOffsetInMinutes,
+      mode,
+      minuteInterval
     } = this.props
 
     return (
@@ -73,6 +79,12 @@ class SelectInput extends AbstractSelectInput {
             buttonsViewStyle={buttonsViewStyle}
             pickerItemStyle={pickerItemStyle}
             pickerViewStyle={pickerViewStyle}
+            mode={mode}
+            maximumDate={maximumDate}
+            minimumDate={minimumDate}
+            timeZoneOffsetInMinutes={timeZoneOffsetInMinutes}
+            locale={locale}
+            minuteInterval={minuteInterval}
           />
         </View>
       </TouchableWithoutFeedback>

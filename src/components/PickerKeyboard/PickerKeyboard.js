@@ -74,7 +74,13 @@ class PickerKeyboard extends Component {
       cancelKeyText,
       submitKeyText,
       options,
-      dateMode
+      dateMode,
+      locale,
+      maximumDate,
+      minimumDate,
+      timeZoneOffsetInMinutes,
+      mode,
+      minuteInterval
     } = this.props
 
     const { value, visible } = this.state
@@ -90,9 +96,16 @@ class PickerKeyboard extends Component {
         visible={visible}
       >
         {dateMode ? (
-          <DateTimePicker value={value}
+          <DateTimePicker
+            value={value}
             display="default"
-            onChange={(e,val) => this.onValueChange(val)}
+            onChange={(e, val) => this.onValueChange(val)}
+            mode={mode}
+            maximumDate={maximumDate}
+            minimumDate={minimumDate}
+            timeZoneOffsetInMinutes={timeZoneOffsetInMinutes}
+            locale={locale}
+            minuteInterval={minuteInterval}
           />
         ):(
           <Picker
