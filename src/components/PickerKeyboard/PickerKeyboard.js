@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Dimensions, Picker } from 'react-native'
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 import CustomKeyboard from '../CustomKeyboard'
 
@@ -69,7 +70,6 @@ class PickerKeyboard extends Component {
   onValueChange = value => {
     const { onValueChange } = this.props
     onValueChange && onValueChange(value)
-
     this.setState({
       value: value
     })
@@ -90,7 +90,14 @@ class PickerKeyboard extends Component {
       pickerViewStyle,
       cancelKeyText,
       submitKeyText,
-      options
+      options,
+      dateMode,
+      locale,
+      maximumDate,
+      minimumDate,
+      timeZoneOffsetInMinutes,
+      mode,
+      minuteInterval
     } = this.props
 
     return (
@@ -103,21 +110,35 @@ class PickerKeyboard extends Component {
         submitKeyText={submitKeyText}
         visible={visible}
       >
-        <Picker
-          ref={this.setPickerRef}
-          onValueChange={this.onValueChange}
-          selectedValue={value}
-          style={[styles.pickerview, pickerViewStyle, { width }]}
-          itemStyle={pickerItemStyle}
-        >
-          {options.map(option => (
-            <Picker.Item
-              key={option.value}
-              value={option.value}
-              label={option.label}
-            />
-          ))}
-        </Picker>
+        {dateMode ? (
+          <DateTimePicker
+            value={value}
+            display="default"
+            onChange={(e, val) => this.onValueChange(val)}
+            mode={mode}
+            maximumDate={maximumDate}
+            minimumDate={minimumDate}
+            timeZoneOffsetInMinutes={timeZoneOffsetInMinutes}
+            locale={locale}
+            minuteInterval={minuteInterval}
+          />
+        ):(
+          <Picker
+            ref={this.setPickerRef}
+            onValueChange={this.onValueChange}
+            selectedValue={value}
+            style={[styles.pickerview, pickerViewStyle, { width }]}
+            itemStyle={pickerItemStyle}
+          >
+            {options.map(option => (
+              <Picker.Item
+                key={option.value}
+                value={option.value}
+                label={option.label}
+              />
+            ))}
+          </Picker>
+        )}
       </CustomKeyboard>
     )
   }
