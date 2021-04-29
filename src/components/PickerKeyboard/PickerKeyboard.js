@@ -119,6 +119,7 @@ class PickerKeyboard extends Component {
             mode='date'
             timeZoneOffsetInMinutes={timeZoneOffsetInMinutes}
             locale={locale}
+            style={{ width }}
           />
         ):(
           <Picker
