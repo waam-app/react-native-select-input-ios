@@ -70,7 +70,9 @@ class CustomKeyboard extends Component {
                 />
               </View>
 
-              <View>{children}</View>
+              <View style={styles.childContainer}>
+                {children}
+              </View>
             </View>
           </View>
         </TouchableWithoutFeedback>

@@ -21,6 +21,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#CCCFD6',
     borderColor: '#CCCFD6',
     borderTopColor: 'lightgrey'
+  },
+  childContainer: {
+    width: '100%'
   }
 })
 
