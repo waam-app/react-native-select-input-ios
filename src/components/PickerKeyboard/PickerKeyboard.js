@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Dimensions, Picker } from 'react-native'
-import DateTimePicker from '@react-native-community/datetimepicker';
+import DatePicker from 'react-native-date-picker'
 
 import CustomKeyboard from '../CustomKeyboard'
 
@@ -111,16 +111,14 @@ class PickerKeyboard extends Component {
         visible={visible}
       >
         {dateMode ? (
-          <DateTimePicker
-            value={value}
-            display="default"
-            onChange={(e, val) => this.onValueChange(val)}
-            mode={mode}
+          <DatePicker
+            date={value}
+            onDateChange={this.onValueChange}
             maximumDate={maximumDate}
             minimumDate={minimumDate}
+            mode='date'
             timeZoneOffsetInMinutes={timeZoneOffsetInMinutes}
             locale={locale}
-            minuteInterval={minuteInterval}
           />
         ):(
           <Picker
