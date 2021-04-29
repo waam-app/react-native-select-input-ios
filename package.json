@@ -57,6 +57,6 @@
     "react-test-renderer": "*"
   },
   "dependencies": {
-    "@react-native-community/datetimepicker": "^2.1.0"
+    "react-native-date-picker": "^3.2.10"
   }
 }
