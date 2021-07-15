@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Dimensions, Picker } from 'react-native'
+import { Dimensions } from 'react-native'
+import { Picker } from '@react-native-picker/picker'
 import DatePicker from 'react-native-date-picker'
 
 import CustomKeyboard from '../CustomKeyboard'
@@ -33,7 +34,7 @@ class PickerKeyboard extends Component {
     })
   }
 
-  setPickerRef = component => {
+  setPickerRef = (component) => {
     this.picker = component
   }
 
@@ -67,7 +68,7 @@ class PickerKeyboard extends Component {
     onSubmit && onSubmit(value)
   }
 
-  onValueChange = value => {
+  onValueChange = (value) => {
     const { onValueChange } = this.props
     onValueChange && onValueChange(value)
     this.setState({
@@ -75,7 +76,7 @@ class PickerKeyboard extends Component {
     })
   }
 
-  setVisible = visible => {
+  setVisible = (visible) => {
     this.setState({
       visible: visible
     })
@@ -116,12 +117,12 @@ class PickerKeyboard extends Component {
             onDateChange={this.onValueChange}
             maximumDate={maximumDate}
             minimumDate={minimumDate}
-            mode='date'
+            mode="date"
             timeZoneOffsetInMinutes={timeZoneOffsetInMinutes}
             locale={locale}
             style={{ width }}
           />
-        ):(
+        ) : (
           <Picker
             ref={this.setPickerRef}
             onValueChange={this.onValueChange}
@@ -129,7 +130,7 @@ class PickerKeyboard extends Component {
             style={[styles.pickerview, pickerViewStyle, { width }]}
             itemStyle={pickerItemStyle}
           >
-            {options.map(option => (
+            {options.map((option) => (
               <Picker.Item
                 key={option.value}
                 value={option.value}
