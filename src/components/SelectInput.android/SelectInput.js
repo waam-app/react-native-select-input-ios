@@ -1,5 +1,6 @@
 import React from 'react'
-import { Picker, View } from 'react-native'
+import { View } from 'react-native'
+import { Picker } from '@react-native-picker/picker'
 
 import AbstractSelectInput from '../AbstractSelectInput'
 
@@ -20,7 +21,7 @@ class SelectInput extends AbstractSelectInput {
           selectedValue={selectedValue}
           mode={mode}
         >
-          {options.map(option => (
+          {options.map((option) => (
             <Picker.Item
               key={option.value}
               value={option.value}
