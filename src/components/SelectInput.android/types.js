@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types'
-import { ViewPropTypes } from 'react-native'
+import { ViewPropTypes, ColorPropType } from 'react-native'
 
 import selectInputPropTypes from '../AbstractSelectInput/types.js'
 
 export default {
   ...selectInputPropTypes,
+  backgroundColor: ColorPropType,
+  dropdownIconColor: ColorPropType,
   mode: PropTypes.oneOf(['dialog', 'dropdown']),
   style: PropTypes.oneOfType([
     ViewPropTypes.style,
