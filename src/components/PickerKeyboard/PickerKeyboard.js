@@ -34,7 +34,7 @@ class PickerKeyboard extends Component {
     })
   }
 
-  setPickerRef = (component) => {
+  setPickerRef = component => {
     this.picker = component
   }
 
@@ -68,7 +68,7 @@ class PickerKeyboard extends Component {
     onSubmit && onSubmit(value)
   }
 
-  onValueChange = (value) => {
+  onValueChange = value => {
     const { onValueChange } = this.props
     onValueChange && onValueChange(value)
     this.setState({
@@ -76,7 +76,7 @@ class PickerKeyboard extends Component {
     })
   }
 
-  setVisible = (visible) => {
+  setVisible = visible => {
     this.setState({
       visible: visible
     })
@@ -113,7 +113,7 @@ class PickerKeyboard extends Component {
       >
         {dateMode ? (
           <DatePicker
-            date={value}
+            date={value || new Date()}
             onDateChange={this.onValueChange}
             maximumDate={maximumDate}
             minimumDate={minimumDate}
@@ -130,7 +130,7 @@ class PickerKeyboard extends Component {
             style={[styles.pickerview, pickerViewStyle, { width }]}
             itemStyle={pickerItemStyle}
           >
-            {options.map((option) => (
+            {options.map(option => (
               <Picker.Item
                 key={option.value}
                 value={option.value}
