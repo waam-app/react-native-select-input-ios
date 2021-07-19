@@ -45,8 +45,10 @@ class AbstractSelectInput extends Component {
   }
 
   getValueLabel = () => {
-    const { options, value } = this.props
+    const { options, value, placeholder } = this.props
     const valueOptions = options || [{ value: '', label: '' }]
+
+    if (!value && placeholder) return placeholder
 
     return (
       valueOptions.map(function(option) {

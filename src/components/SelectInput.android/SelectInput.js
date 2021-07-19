@@ -16,7 +16,8 @@ class SelectInput extends AbstractSelectInput {
       options,
       style,
       backgroundColor,
-      dropdownIconColor
+      dropdownIconColor,
+      placeholder
     } = this.props
     const { selectedValue } = this.state
 
@@ -31,6 +32,9 @@ class SelectInput extends AbstractSelectInput {
           selectedValue={selectedValue}
           mode={mode}
         >
+          {!!placeholder && (
+            <Picker.Item key={placeholder} value="" label={placeholder} />
+          )}
           {options.map(option => (
             <Picker.Item
               key={option.value}
